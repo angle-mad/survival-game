@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1nqn24pkkbr1"]
+
+[ext_resource type="PackedScene" uid="uid://eus2brkk4urp" path="res://characters/Objects/Player.tscn" id="1_l7ddu"]
+[ext_resource type="PackedScene" uid="uid://dexperb4pj6ko" path="res://characters/Objects/tree.tscn" id="2_8b4vd"]
+[ext_resource type="PackedScene" uid="uid://c12p7107chgo1" path="res://characters/Objects/mob.tscn" id="3_035sf"]
+
+[node name="Game" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = 7.0
+offset_top = -17.0
+offset_right = 1167.0
+offset_bottom = 665.0
+
+[node name="Player" parent="." instance=ExtResource("1_l7ddu")]
+position = Vector2(517, 300)
+
+[node name="Tree" parent="." instance=ExtResource("2_8b4vd")]
+position = Vector2(193, 399)
+
+[node name="Tree2" parent="." instance=ExtResource("2_8b4vd")]
+position = Vector2(777, 237)
+
+[node name="Tree3" parent="." instance=ExtResource("2_8b4vd")]
+position = Vector2(600, 543)
+
+[node name="Mob" parent="." instance=ExtResource("3_035sf")]
+position = Vector2(93, 82)
