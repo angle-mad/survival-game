@@ -7,7 +7,7 @@
 radius = 447.11185
 
 [node name="Gun" type="Area2D"]
-collision_layer = 0
+collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_ojr51")
 
@@ -16,10 +16,9 @@ position = Vector2(20, -3)
 shape = SubResource("CircleShape2D_ojr51")
 
 [node name="WeaponPivot" type="Marker2D" parent="."]
-position = Vector2(6, 1)
 
 [node name="Pistol" type="Sprite2D" parent="WeaponPivot"]
-position = Vector2(108, 1)
+position = Vector2(113, 2)
 texture = ExtResource("1_hg2pu")
 
 [node name="ShootingPoint" type="Marker2D" parent="WeaponPivot/Pistol"]

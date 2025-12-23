@@ -1,23 +1,38 @@
-[gd_scene load_steps=5 format=3 uid="uid://eus2brkk4urp"]
+[gd_scene load_steps=8 format=3 uid="uid://eus2brkk4urp"]
 
 [ext_resource type="Script" uid="uid://ca0jl5xtrcpy1" path="res://characters/Objects/player.gd" id="1_0rr22"]
 [ext_resource type="Texture2D" uid="uid://b2ent6mf1y7w7" path="res://characters/happy_boo/square_ref.png" id="2_dva2w"]
 [ext_resource type="PackedScene" uid="uid://b1t2eef7eg4s3" path="res://characters/Objects/gun.tscn" id="3_0rr22"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vo4yd"]
-radius = 64.12488
+radius = 53.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0rr22"]
+radius = 59.008472
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0rr22"]
+bg_color = Color(0.5842129, 0.06470506, 0.06885416, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_852p6"]
+bg_color = Color(0.26394597, 0.47235346, 0.22227177, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="Player" type="CharacterBody2D"]
-collision_layer = 2
-collision_mask = 3
 script = ExtResource("1_0rr22")
 
 [node name="SquareRef" type="Sprite2D" parent="."]
 position = Vector2(-11, 4)
 texture = ExtResource("2_dva2w")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-8, 3)
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(-9, 7)
 shape = SubResource("CircleShape2D_vo4yd")
 
 [node name="Gun" parent="." instance=ExtResource("3_0rr22")]
@@ -26,3 +41,25 @@ collision_layer = 1
 collision_mask = 3
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Hurtbox" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(-9, 5)
+shape = SubResource("CircleShape2D_0rr22")
+debug_color = Color(0.9968923, 0.05167964, 1.347661e-06, 0.41960785)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+z_index = 2
+offset_left = -155.0
+offset_top = -302.0
+offset_right = 176.0
+offset_bottom = -247.0
+theme_override_styles/background = SubResource("StyleBoxFlat_0rr22")
+theme_override_styles/fill = SubResource("StyleBoxFlat_852p6")
+value = 100.0
+show_percentage = false
