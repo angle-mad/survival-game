@@ -13,7 +13,6 @@ config_version=5
 config/name="survival-game"
 run/main_scene="uid://d1nqn24pkkbr1"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://icon.svg"
 
 [editor_plugins]
 
@@ -44,5 +43,6 @@ move_down={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btbxea1f3vwot"
-path="res://.godot/imported/slime_body_hurt.png-3f38b75e5ebee1f99a984b348a7e7f8b.ctex"
+uid="uid://cy8ckhr01qtyj"
+path="res://.godot/imported/Orange_Character.png-fed1520ba312426846a1a39dbf5b2cf2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/slime/slime_body_hurt.png"
-dest_files=["res://.godot/imported/slime_body_hurt.png-3f38b75e5ebee1f99a984b348a7e7f8b.ctex"]
+source_file="res://characters/orange/Orange_Character.png"
+dest_files=["res://.godot/imported/Orange_Character.png-fed1520ba312426846a1a39dbf5b2cf2.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qmqpm6asge1i"
-path="res://.godot/imported/square_upper_leg.png-e1f848aab7dd8805f40f881c2160a53d.ctex"
+uid="uid://dn7niljgwsoc6"
+path="res://.godot/imported/Gurt_Character.png-e90cdd7d4cd8a9e05cfaa27d58ef4efe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/happy_boo/square_upper_leg.png"
-dest_files=["res://.godot/imported/square_upper_leg.png-e1f848aab7dd8805f40f881c2160a53d.ctex"]
+source_file="res://characters/Objects/Gurt_Character.png"
+dest_files=["res://.godot/imported/Gurt_Character.png-e90cdd7d4cd8a9e05cfaa27d58ef4efe.ctex"]
 
 [params]
 
