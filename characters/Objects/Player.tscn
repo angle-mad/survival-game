@@ -32,6 +32,7 @@ position = Vector2(-9, 7)
 shape = SubResource("CircleShape2D_vo4yd")
 
 [node name="GurtCharacter" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(-8, -13)
 scale = Vector2(3, 3)
 texture = ExtResource("2_0rr22")
@@ -55,7 +56,7 @@ debug_color = Color(0.9968923, 0.05167964, 1.347661e-06, 0.41960785)
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
-z_index = 2
+z_index = 5
 offset_left = -170.0
 offset_top = -225.0
 offset_right = 161.0

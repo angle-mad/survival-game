@@ -23,9 +23,10 @@ func toggle_visibility(object):
 	else:
 			object.visible = true
 
-
-
-
 func _on_settings_pressed() -> void:
 	toggle_visibility(%Main_Menu)
 	toggle_visibility(%Settings_Menu)
+
+
+func _on_settings_back_pressed() -> void:
+	_on_settings_pressed() #works same way as settings press

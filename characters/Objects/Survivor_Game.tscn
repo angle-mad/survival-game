@@ -1,14 +1,32 @@
-[gd_scene load_steps=5 format=3 uid="uid://d1nqn24pkkbr1"]
+[gd_scene load_steps=9 format=3 uid="uid://d1nqn24pkkbr1"]
 
 [ext_resource type="Script" uid="uid://4m8r2ht7nnbs" path="res://characters/Objects/survivor_game.gd" id="1_budex"]
 [ext_resource type="PackedScene" uid="uid://eus2brkk4urp" path="res://characters/Objects/Player.tscn" id="1_l7ddu"]
-[ext_resource type="PackedScene" uid="uid://dexperb4pj6ko" path="res://characters/Objects/tree.tscn" id="2_8b4vd"]
 
 [sub_resource type="Curve2D" id="Curve2D_budex"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -200, -81, 0, 0, 0, 0, 1302, -96, 0, 0, 0, 0, 1307, 786, 0, 0, 0, 0, -205, 781, 0, 0, 0, 0, -200, -81)
 }
 point_count = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_budex"]
+bg_color = Color(0.6354448, 0.06125529, 0.15018287, 1)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_budex"]
+a = Vector2(-5000, -5000)
+b = Vector2(5000, -5000)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_fhaaj"]
+a = Vector2(-5000, 5000)
+b = Vector2(5000, 5000)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_0jp5r"]
+a = Vector2(-5000, -5000)
+b = Vector2(-5000, 5000)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_5ftl4"]
+a = Vector2(5000, -5000)
+b = Vector2(5000, 5000)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_budex")
@@ -34,20 +52,12 @@ unique_name_in_owner = true
 position = Vector2(-200, -81)
 rotation = -0.009986353
 
-[node name="Tree" parent="." instance=ExtResource("2_8b4vd")]
-position = Vector2(193, 399)
-
-[node name="Tree2" parent="." instance=ExtResource("2_8b4vd")]
-position = Vector2(777, 237)
-
-[node name="Tree3" parent="." instance=ExtResource("2_8b4vd")]
-position = Vector2(600, 543)
-
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
 [node name="GameOver" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
+process_mode = 2
 visible = false
 
 [node name="ColorRect" type="ColorRect" parent="GameOver"]
@@ -58,21 +68,67 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.77909046, 0.16097686, 9.62615e-08, 0.35686275)
 
-[node name="Label" type="Label" parent="GameOver/ColorRect"]
-layout_mode = 1
+[node name="CenterContainer" type="CenterContainer" parent="GameOver"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOver/CenterContainer"]
+custom_minimum_size = Vector2(0, -100)
+layout_mode = 2
+
+[node name="Reset" type="Button" parent="GameOver/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_budex")
+text = "Reset"
+
+[node name="Main_Menu" type="Button" parent="GameOver/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_budex")
+text = "Main Menu"
+
+[node name="Label" type="Label" parent="GameOver"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -171.0
-offset_top = -56.0
-offset_right = 171.0
-offset_bottom = 56.0
+offset_left = -417.0
+offset_top = -313.0
+offset_right = 439.0
+offset_bottom = -108.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 150
 text = "Game Over!"
 
+[node name="ArenaBorder" type="StaticBody2D" parent="."]
+
+[node name="Top_Wall" type="CollisionShape2D" parent="ArenaBorder"]
+shape = SubResource("SegmentShape2D_budex")
+
+[node name="Bottom_Wall" type="CollisionShape2D" parent="ArenaBorder"]
+shape = SubResource("SegmentShape2D_fhaaj")
+
+[node name="Left_Wall" type="CollisionShape2D" parent="ArenaBorder"]
+shape = SubResource("SegmentShape2D_0jp5r")
+
+[node name="Right_Wall" type="CollisionShape2D" parent="ArenaBorder"]
+shape = SubResource("SegmentShape2D_5ftl4")
+
+[node name="Line2D" type="Line2D" parent="ArenaBorder"]
+points = PackedVector2Array(-5000, -5000, 5000, -5000, 5000, 5000, -5000, 5000, -5000, -5000)
+default_color = Color(0.57646215, 0.23063931, 2.8878452e-07, 1)
+
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="GameOver/CenterContainer/VBoxContainer/Reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="GameOver/CenterContainer/VBoxContainer/Main_Menu" to="." method="_on_main_menu_pressed"]
