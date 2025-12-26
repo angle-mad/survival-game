@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="survival-game"
-run/main_scene="uid://d1nqn24pkkbr1"
+run/main_scene="uid://bh7guu7kluhfl"
 config/features=PackedStringArray("4.5", "GL Compatibility")
+
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [editor_plugins]
 

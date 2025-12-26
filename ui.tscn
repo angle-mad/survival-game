@@ -1,0 +1,85 @@
+[gd_scene load_steps=2 format=3 uid="uid://bh7guu7kluhfl"]
+
+[ext_resource type="Script" uid="uid://bwxy6gl80tdcw" path="res://main_menu.gd" id="1_fyqef"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Main_Menu" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fyqef")
+
+[node name="ColorRect" type="ColorRect" parent="Main_Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.09270046, 0.35979557, 0.5616745, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="Main_Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main_Menu/CenterContainer"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="Main_Menu/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Play
+"
+
+[node name="Settings" type="Button" parent="Main_Menu/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Settings
+"
+
+[node name="Quit" type="Button" parent="Main_Menu/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+
+[node name="Title" type="Label" parent="Main_Menu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -409.5
+offset_right = 409.5
+offset_bottom = 110.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 80
+text = "Survival of the Fittest"
+
+[node name="Settings_Menu" type="Control" parent="."]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="pressed" from="Main_Menu/CenterContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Main_Menu/CenterContainer/VBoxContainer/Play" to="Main_Menu" method="_on_play_pressed"]
+[connection signal="pressed" from="Main_Menu/CenterContainer/VBoxContainer/Settings" to="Main_Menu" method="_on_settings_pressed"]
+[connection signal="pressed" from="Main_Menu/CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Main_Menu/CenterContainer/VBoxContainer/Quit" to="Main_Menu" method="_on_quit_pressed"]

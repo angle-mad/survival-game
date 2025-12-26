@@ -1,0 +1,31 @@
+extends Control
+
+func _ready():
+	%Main_Menu.visible = true
+	%Settings_Menu.visible = false
+
+func play():
+	get_tree().change_scene_to_file("res://characters/Objects/Survivor_Game.tscn")
+
+func _on_play_pressed() -> void:
+	play()
+
+func quit_game():
+	get_tree().quit()
+
+func _on_quit_pressed() -> void:
+	quit_game()
+	
+	
+func toggle_visibility(object):
+	if object.visible:
+		object.visible = false
+	else:
+			object.visible = true
+
+
+
+
+func _on_settings_pressed() -> void:
+	toggle_visibility(%Main_Menu)
+	toggle_visibility(%Settings_Menu)
