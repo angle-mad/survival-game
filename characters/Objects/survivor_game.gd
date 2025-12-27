@@ -2,6 +2,9 @@ extends Node2D
 
 var mobs_killed = 0
 
+const MAP_MIN = -4900
+const MAP_MAX = 4900
+const TREE_SPACING = 400
 
 func _ready():
 	%GameOver.visible = false
@@ -19,12 +22,12 @@ func spawn_random_trees(count):
 		
 		while !valid_position:
 			pos = Vector2(
-				randf_range(-4900,4900),
-				randf_range(-4900,4900)
+				randf_range(MAP_MIN,MAP_MAX),
+				randf_range(MAP_MIN,MAP_MAX)
 			)
 			valid_position = true
 			for existing_pos in tree_positions:
-				if pos.distance_to(existing_pos) < 400:
+				if pos.distance_to(existing_pos) < TREE_SPACING:
 					valid_position = false
 					break
 		tree.position = pos
@@ -33,20 +36,27 @@ func spawn_random_trees(count):
 
 
 
-
-
-
-
 func spawn_mob():
 	var new_mob = preload("res://characters/Objects/mob.tscn").instantiate()
 	%PathFollow2D.progress_ratio = randf()
-	new_mob.global_position = %PathFollow2D.global_position
+	
+	var spawn_pos = %PathFollow2D.global_position
+	spawn_pos.x = clamp(spawn_pos.x, MAP_MIN, MAP_MAX)
+	spawn_pos.y = clamp(spawn_pos.y, MAP_MIN, MAP_MAX)
+	new_mob.global_position = spawn_pos
+	
 	add_child(new_mob)
 	new_mob.connect("mob_died", _on_mob_died)
 	
 func spawn_orange():
 	var new_orange = preload("res://characters/orange/orange.tscn").instantiate()
 	%PathFollow2D.progress_ratio = randf()
+	
+	var spawn_pos = %PathFollow2D.global_position
+	spawn_pos.x = clamp(spawn_pos.x, MAP_MIN, MAP_MAX)
+	spawn_pos.y = clamp(spawn_pos.y, MAP_MIN, MAP_MAX)
+	new_orange.global_position = spawn_pos
+	
 	new_orange.global_position = %PathFollow2D.global_position
 	add_child.call_deferred(new_orange)
 

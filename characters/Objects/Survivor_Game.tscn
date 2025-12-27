@@ -35,10 +35,10 @@ script = ExtResource("1_budex")
 layer = -1
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-offset_left = 7.0
-offset_top = -17.0
-offset_right = 1167.0
-offset_bottom = 665.0
+offset_left = -277.0
+offset_top = -186.0
+offset_right = 1379.0
+offset_bottom = 854.0
 
 [node name="Player" parent="." instance=ExtResource("1_l7ddu")]
 position = Vector2(517, 300)
