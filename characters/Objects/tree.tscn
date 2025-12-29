@@ -26,12 +26,12 @@ position = Vector2(-1, 4)
 texture = ExtResource("2_3o3wa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 56)
+position = Vector2(-1, 70.00001)
 scale = Vector2(1.5, 1.5)
 shape = SubResource("CircleShape2D_7lrrh")
 
 [node name="Collision_Detector" type="Area2D" parent="."]
-collision_mask = 3
+collision_mask = 5
 script = ExtResource("3_f7v1l")
 
 [node name="Tree_enemy_collide" type="CollisionShape2D" parent="Collision_Detector"]

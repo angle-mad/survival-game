@@ -49,13 +49,6 @@ func _physics_process(delta: float) -> void:
 		velocity = direction * BASE_SPEED
 	move_and_slide()
 
-
-
-
-
-
-
-
 	const DAMAGE_RATE = 25.0
 	var overlapping_mobs = %Hurtbox.get_overlapping_bodies()
 	if overlapping_mobs.size() > 0 && !is_dashing:
@@ -63,6 +56,5 @@ func _physics_process(delta: float) -> void:
 		%ProgressBar.value = health
 		if health <= 0.0:
 			health_depleted.emit()
-		
 		
 		

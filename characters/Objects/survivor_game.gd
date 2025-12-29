@@ -9,6 +9,10 @@ const TREE_SPACING = 400
 func _ready():
 	%GameOver.visible = false
 	spawn_random_trees(200)
+	await get_tree().create_timer(5.0).timeout
+	$Timer.start()
+	
+	
 func unpause():
 	get_tree().paused = false
 
@@ -48,6 +52,18 @@ func spawn_mob():
 	add_child(new_mob)
 	new_mob.connect("mob_died", _on_mob_died)
 	
+func spawn_flower():
+	var new_flower = preload("res://characters/flower/flower.tscn").instantiate()
+	%PathFollow2D.progress_ratio = randf()
+	
+	var spawn_pos = %PathFollow2D.global_position
+	spawn_pos.x = clamp(spawn_pos.x, MAP_MIN, MAP_MAX)
+	spawn_pos.y = clamp(spawn_pos.y, MAP_MIN, MAP_MAX)
+	new_flower.global_position = spawn_pos
+	
+	new_flower.global_position = %PathFollow2D.global_position
+	add_child.call_deferred(new_flower)
+	
 func spawn_orange():
 	var new_orange = preload("res://characters/orange/orange.tscn").instantiate()
 	%PathFollow2D.progress_ratio = randf()
@@ -65,6 +81,9 @@ func _on_mob_died():
 	
 	if mobs_killed % 20 == 0:
 		spawn_orange()
+		
+	if mobs_killed % 9 == 0:
+		spawn_flower()
 
 func _on_timer_timeout() -> void:
 	spawn_mob()

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0k3sxjkxa6yw"]
+
+[ext_resource type="Script" uid="uid://mhvq4hdb30ir" path="res://flower.gd" id="1_8hag5"]
+[ext_resource type="Texture2D" uid="uid://cba8wddp17qgs" path="res://Flower_Character.png" id="2_a07to"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qhp7t"]
+radius = 95.0
+
+[node name="Flower" type="CharacterBody2D"]
+script = ExtResource("1_8hag5")
+
+[node name="FlowerCharacter" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("2_a07to")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 9)
+shape = SubResource("CircleShape2D_qhp7t")

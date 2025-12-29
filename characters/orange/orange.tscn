@@ -7,8 +7,10 @@
 radius = 6.694475
 
 [node name="Orange" type="CharacterBody2D" groups=["orange_enemies"]]
-collision_layer = 2
+collision_layer = 4
 collision_mask = 3
+collision_priority = 5.0
+motion_mode = 1
 script = ExtResource("1_efaiw")
 
 [node name="OrangeBody" type="Sprite2D" parent="."]
