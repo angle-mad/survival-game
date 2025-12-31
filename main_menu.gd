@@ -30,3 +30,7 @@ func _on_settings_pressed() -> void:
 
 func _on_settings_back_pressed() -> void:
 	_on_settings_pressed() #works same way as settings press
+
+
+func _on_button_pressed() -> void:
+	AudioManager.play_sfx("res://music/mutantdie.wav")

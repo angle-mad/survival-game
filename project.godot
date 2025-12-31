@@ -14,6 +14,10 @@ config/name="survival-game"
 run/main_scene="uid://bh7guu7kluhfl"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 
+[autoload]
+
+AudioManager="*res://audio_manager.gd"
+
 [display]
 
 window/stretch/mode="viewport"

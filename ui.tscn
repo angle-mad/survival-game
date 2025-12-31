@@ -1,6 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://bh7guu7kluhfl"]
+[gd_scene load_steps=8 format=3 uid="uid://bh7guu7kluhfl"]
 
 [ext_resource type="Script" uid="uid://bwxy6gl80tdcw" path="res://main_menu.gd" id="1_fyqef"]
+[ext_resource type="PackedScene" uid="uid://c7idkbj7xpyip" path="res://volume_slider.tscn" id="2_27fn8"]
+[ext_resource type="AudioStream" uid="uid://cpodihwjvd36c" path="res://music/upbeat_756v2.ogg" id="2_m6e0p"]
+[ext_resource type="AudioStream" uid="uid://db6pd4qgrtsci" path="res://music/mutantdie.wav" id="4_nltto"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nltto"]
+bg_color = Color(0, 0.6296427, 0.980184, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 50.0
+expand_margin_top = 50.0
+expand_margin_right = 50.0
+expand_margin_bottom = 50.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_27fn8"]
+bg_color = Color(0.5489481, 0.16977915, 0.19654313, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ibotj"]
+bg_color = Color(0.6782926, 0.22362566, 0.2546066, 1)
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -90,7 +110,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.3310189, 0.33101895, 0.33101892, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Settings_Menu"]
+[node name="PanelContainer" type="PanelContainer" parent="Settings_Menu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -98,26 +118,71 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -150.0
-offset_top = -102.0
+offset_top = -75.5
 offset_right = 150.0
-offset_bottom = 102.0
+offset_bottom = 75.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nltto")
 
-[node name="Settings_Back" type="Button" parent="Settings_Menu/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings_Menu/PanelContainer"]
+layout_mode = 2
+
+[node name="Settings_Back" type="Button" parent="Settings_Menu/PanelContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_27fn8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ibotj")
 text = "Back"
 
-[node name="Button" type="Button" parent="Settings_Menu/VBoxContainer"]
+[node name="Button" type="Button" parent="Settings_Menu/PanelContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
-text = "Other Button
-"
+text = "Test SFX"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings_Menu/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Master" type="Label" parent="Settings_Menu/PanelContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="master" parent="Settings_Menu/PanelContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_27fn8")]
+layout_mode = 2
+value = 1.0
+bus_name = "Master"
+
+[node name="Music" type="Label" parent="Settings_Menu/PanelContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Music Volume"
+
+[node name="music" parent="Settings_Menu/PanelContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_27fn8")]
+layout_mode = 2
+value = 1.0
+bus_name = "music"
+
+[node name="SFX" type="Label" parent="Settings_Menu/PanelContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "SFX Volume"
+
+[node name="sfx" parent="Settings_Menu/PanelContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_27fn8")]
+layout_mode = 2
+value = 1.0
+bus_name = "sfx"
+
+[node name="Upbeat756v2" type="AudioStreamPlayer" parent="Settings_Menu"]
+stream = ExtResource("2_m6e0p")
+autoplay = true
+bus = &"music"
+
+[node name="Mutantdie" type="AudioStreamPlayer" parent="Settings_Menu"]
+stream = ExtResource("4_nltto")
+bus = &"sfx"
 
 [connection signal="pressed" from="Main_Menu/CenterContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Main_Menu/CenterContainer/VBoxContainer/Play" to="Main_Menu" method="_on_play_pressed"]
 [connection signal="pressed" from="Main_Menu/CenterContainer/VBoxContainer/Settings" to="Main_Menu" method="_on_settings_pressed"]
 [connection signal="pressed" from="Main_Menu/CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Main_Menu/CenterContainer/VBoxContainer/Quit" to="Main_Menu" method="_on_quit_pressed"]
-[connection signal="pressed" from="Settings_Menu/VBoxContainer/Settings_Back" to="Main_Menu" method="_on_settings_back_pressed"]
+[connection signal="pressed" from="Settings_Menu/PanelContainer/VBoxContainer/Settings_Back" to="Main_Menu" method="_on_settings_back_pressed"]
+[connection signal="pressed" from="Settings_Menu/PanelContainer/VBoxContainer/Button" to="Main_Menu" method="_on_button_pressed"]

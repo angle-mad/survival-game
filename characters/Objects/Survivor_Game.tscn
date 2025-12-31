@@ -35,10 +35,11 @@ script = ExtResource("1_budex")
 layer = -1
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-offset_left = -277.0
-offset_top = -186.0
-offset_right = 1379.0
-offset_bottom = 854.0
+z_index = 5
+offset_left = -333.0
+offset_top = -227.0
+offset_right = 1323.0
+offset_bottom = 813.0
 
 [node name="Player" parent="." instance=ExtResource("1_l7ddu")]
 position = Vector2(517, 300)
@@ -127,6 +128,15 @@ shape = SubResource("SegmentShape2D_5ftl4")
 points = PackedVector2Array(-5050, -5050, 5050, -5050, 5050, 5050, -5050, 5050, -5050, -5050)
 width = 50.0
 default_color = Color(0.78382486, 8.386783e-05, 0.015320307, 1)
+
+[node name="Stats" type="CanvasLayer" parent="."]
+
+[node name="Enemies_Killed" type="Label" parent="Stats"]
+offset_right = 409.0
+offset_bottom = 110.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
 
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

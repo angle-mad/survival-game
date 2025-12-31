@@ -8,11 +8,12 @@ const TREE_SPACING = 400
 
 func _ready():
 	%GameOver.visible = false
+	$Stats/Enemies_Killed.text = "Enemies Killed: " + str(mobs_killed)
 	spawn_random_trees(200)
 	await get_tree().create_timer(5.0).timeout
 	$Timer.start()
 	
-	
+
 func unpause():
 	get_tree().paused = false
 
@@ -77,7 +78,9 @@ func spawn_orange():
 	add_child.call_deferred(new_orange)
 
 func _on_mob_died():
+	AudioManager.play_sfx("res://music/mutantdie.wav")
 	mobs_killed += 1
+	$Stats/Enemies_Killed.text = "Enemies Killed: " + str(mobs_killed)
 	
 	if mobs_killed % 20 == 0:
 		spawn_orange()

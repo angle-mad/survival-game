@@ -11,7 +11,8 @@ func _physics_process(delta: float) -> void:
 	velocity = direction * 250.0
 	move_and_slide()
 	rotation += rotation_speed * delta
-
+	
+	
 func take_damage():
 	health -= 1
 	
