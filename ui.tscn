@@ -135,10 +135,20 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_27fn8")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ibotj")
 text = "Back"
 
-[node name="Button" type="Button" parent="Settings_Menu/PanelContainer/VBoxContainer"]
+[node name="Test_SFX" type="Button" parent="Settings_Menu/PanelContainer/VBoxContainer"]
 custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
 text = "Test SFX"
+
+[node name="Music_Play" type="Button" parent="Settings_Menu/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+text = "Test Music"
+
+[node name="Music_Stop" type="Button" parent="Settings_Menu/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+text = "Stop Music"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Settings_Menu/PanelContainer/VBoxContainer"]
 layout_mode = 2
@@ -172,7 +182,6 @@ bus_name = "sfx"
 
 [node name="Upbeat756v2" type="AudioStreamPlayer" parent="Settings_Menu"]
 stream = ExtResource("2_m6e0p")
-autoplay = true
 bus = &"music"
 
 [node name="Mutantdie" type="AudioStreamPlayer" parent="Settings_Menu"]
@@ -185,4 +194,6 @@ bus = &"sfx"
 [connection signal="pressed" from="Main_Menu/CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Main_Menu/CenterContainer/VBoxContainer/Quit" to="Main_Menu" method="_on_quit_pressed"]
 [connection signal="pressed" from="Settings_Menu/PanelContainer/VBoxContainer/Settings_Back" to="Main_Menu" method="_on_settings_back_pressed"]
-[connection signal="pressed" from="Settings_Menu/PanelContainer/VBoxContainer/Button" to="Main_Menu" method="_on_button_pressed"]
+[connection signal="pressed" from="Settings_Menu/PanelContainer/VBoxContainer/Test_SFX" to="Main_Menu" method="_on_button_pressed"]
+[connection signal="pressed" from="Settings_Menu/PanelContainer/VBoxContainer/Music_Play" to="Main_Menu" method="_on_music_play_pressed"]
+[connection signal="pressed" from="Settings_Menu/PanelContainer/VBoxContainer/Music_Stop" to="Main_Menu" method="_on_music_stop_pressed"]

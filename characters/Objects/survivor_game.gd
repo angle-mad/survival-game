@@ -64,6 +64,36 @@ func spawn_flower():
 	
 	new_flower.global_position = %PathFollow2D.global_position
 	add_child.call_deferred(new_flower)
+	new_flower.connect("mob_died", _on_mob_died)
+	
+func spawn_puffer():
+	var new_puffer = preload("res://pufferfish.tscn").instantiate()
+	%PathFollow2D.progress_ratio = randf()
+	
+	var spawn_pos = %PathFollow2D.global_position
+	spawn_pos.x = clamp(spawn_pos.x, MAP_MIN, MAP_MAX)
+	spawn_pos.y = clamp(spawn_pos.y, MAP_MIN, MAP_MAX)
+	new_puffer.global_position = spawn_pos
+	
+	new_puffer.global_position = %PathFollow2D.global_position
+	add_child.call_deferred(new_puffer)
+	new_puffer.connect("mob_died", _on_mob_died)
+	
+func spawn_goblin():
+	var new_goblin = preload("res://goblin.tscn").instantiate()
+	%PathFollow2D.progress_ratio = randf()
+	
+	var spawn_pos = %PathFollow2D.global_position
+	spawn_pos.x = clamp(spawn_pos.x, MAP_MIN, MAP_MAX)
+	spawn_pos.y = clamp(spawn_pos.y, MAP_MIN, MAP_MAX)
+	new_goblin.global_position = spawn_pos
+	
+	new_goblin.global_position = %PathFollow2D.global_position
+	add_child.call_deferred(new_goblin)
+	new_goblin.connect("mob_died", _on_mob_died)
+	
+	
+	
 	
 func spawn_orange():
 	var new_orange = preload("res://characters/orange/orange.tscn").instantiate()
@@ -76,6 +106,7 @@ func spawn_orange():
 	
 	new_orange.global_position = %PathFollow2D.global_position
 	add_child.call_deferred(new_orange)
+	new_orange.connect("mob_died", _on_mob_died)
 
 func _on_mob_died():
 	AudioManager.play_sfx("res://music/mutantdie.wav")
@@ -87,7 +118,13 @@ func _on_mob_died():
 		
 	if mobs_killed % 9 == 0:
 		spawn_flower()
-
+		
+	if mobs_killed % 3 == 0:
+		spawn_goblin()
+		
+	if mobs_killed == 4:
+		spawn_puffer()
+		
 func _on_timer_timeout() -> void:
 	spawn_mob()
 
@@ -98,10 +135,12 @@ func _on_player_health_depleted() -> void:
 
 func reset_game():
 	unpause()
+	AudioManager.play_music()
 	get_tree().reload_current_scene()
 
 func _on_main_menu_pressed() -> void:
 	unpause()
+	AudioManager.stop_music()
 	get_tree().change_scene_to_file("res://ui.tscn")
 
 func _on_reset_pressed() -> void:

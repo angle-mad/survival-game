@@ -7,11 +7,21 @@ var bus_index: int
 
 func _ready() -> void:
 	bus_index = AudioServer.get_bus_index(bus_name)
+	
+	if bus_name == "music":
+		value = AudioManager.music_volume_percent
+	elif bus_name == "sfx":
+		value = AudioManager.sfx_volume_percent
+	
 	value_changed.connect(_on_value_changed)
-	
-	
+
 func _on_value_changed(new_value: float) -> void:
 	AudioServer.set_bus_volume_db(
 		bus_index,
 		linear_to_db(new_value)
 	)
+	
+	if bus_name == "music":
+		AudioManager.music_volume_percent = new_value
+	elif bus_name == "sfx":
+		AudioManager.sfx_volume_percent = new_value

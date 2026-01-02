@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://o48qj2bhqab" path="res://characters/Objects/collision_detector.gd" id="3_f7v1l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7lrrh"]
-radius = 27.073973
+radius = 15.359077
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e287p"]
 radius = 61.333332
@@ -15,7 +15,7 @@ height = 220.0
 scale = Vector2(1.5, 1.5)
 
 [node name="GroundShadow" type="Sprite2D" parent="."]
-modulate = Color(0.8117647, 1, 1, 1)
+modulate = Color(0.1824, 0.38, 0.2318, 1)
 position = Vector2(-2.0000005, 71.5)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_ox1rp")
@@ -26,7 +26,7 @@ position = Vector2(-1, 4)
 texture = ExtResource("2_3o3wa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 70.00001)
+position = Vector2(0.3333333, 61.999992)
 scale = Vector2(1.5, 1.5)
 shape = SubResource("CircleShape2D_7lrrh")
 

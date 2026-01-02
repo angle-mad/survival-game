@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlm6dbnwliifv"]
+
+[ext_resource type="Texture2D" uid="uid://b1bb1ejc3nx7b" path="res://characters/Goblin_Character.png" id="1_dl46o"]
+[ext_resource type="Script" uid="uid://b7imd5xilln8r" path="res://goblin.gd" id="1_u6mjv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u6mjv"]
+radius = 19.026299
+
+[node name="goblin" type="CharacterBody2D"]
+script = ExtResource("1_u6mjv")
+
+[node name="GoblinCharacter" type="Sprite2D" parent="."]
+texture = ExtResource("1_dl46o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 3)
+shape = SubResource("CircleShape2D_u6mjv")

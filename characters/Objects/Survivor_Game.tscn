@@ -36,10 +36,12 @@ layer = -1
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 z_index = 5
-offset_left = -333.0
-offset_top = -227.0
-offset_right = 1323.0
-offset_bottom = 813.0
+offset_left = -520.0
+offset_top = -276.0
+offset_right = 1580.0
+offset_bottom = 929.0
+color = Color(0.3355, 0.61, 0.3355, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_l7ddu")]
 position = Vector2(517, 300)
@@ -137,6 +139,7 @@ offset_bottom = 110.0
 size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
+metadata/_edit_use_anchors_ = true
 
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
