@@ -29,17 +29,21 @@ a = Vector2(5000, -5000)
 b = Vector2(5000, 5000)
 
 [node name="Game" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_budex")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -1
+[node name="Static" type="Node2D" parent="."]
+z_index = -5
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-z_index = 5
-offset_left = -520.0
-offset_top = -276.0
-offset_right = 1580.0
-offset_bottom = 929.0
+[node name="CanvasLayer" type="CanvasLayer" parent="Static"]
+layer = -5
+
+[node name="ColorRect" type="ColorRect" parent="Static/CanvasLayer"]
+z_index = -5
+offset_left = -527.0
+offset_top = -197.0
+offset_right = 1573.0
+offset_bottom = 1008.0
 color = Color(0.3355, 0.61, 0.3355, 1)
 metadata/_edit_use_anchors_ = true
 

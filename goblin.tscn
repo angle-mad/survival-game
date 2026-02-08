@@ -4,12 +4,15 @@
 [ext_resource type="Script" uid="uid://b7imd5xilln8r" path="res://goblin.gd" id="1_u6mjv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u6mjv"]
-radius = 19.026299
+radius = 57.070133
 
 [node name="goblin" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 11
 script = ExtResource("1_u6mjv")
 
 [node name="GoblinCharacter" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
 texture = ExtResource("1_dl46o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

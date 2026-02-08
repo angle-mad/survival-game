@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+signal mob_died
 var health = 5
 var rotation_speed = 3.0
 
@@ -15,6 +16,7 @@ func take_damage():
 	health -= 1
 	
 	if health == 0:
+		mob_died.emit()
 		const SMOKE_SCENE = preload("res://smoke_explosion/smoke_explosion.tscn")
 		var smoke = SMOKE_SCENE.instantiate()
 		get_parent().add_child(smoke)

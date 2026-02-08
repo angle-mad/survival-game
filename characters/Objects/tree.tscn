@@ -12,29 +12,32 @@ radius = 61.333332
 height = 220.0
 
 [node name="Tree" type="StaticBody2D"]
+y_sort_enabled = true
 scale = Vector2(1.5, 1.5)
 
 [node name="GroundShadow" type="Sprite2D" parent="."]
 modulate = Color(0.1824, 0.38, 0.2318, 1)
-position = Vector2(-2.0000005, 71.5)
+z_index = -1
+position = Vector2(-0.33333564, 23.500008)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_ox1rp")
 
 [node name="PineTree" type="Sprite2D" parent="."]
-z_index = 2
-position = Vector2(-1, 4)
 texture = ExtResource("2_3o3wa")
+offset = Vector2(0, -30)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.3333333, 61.999992)
+position = Vector2(0.66665876, 25.333279)
 scale = Vector2(1.5, 1.5)
 shape = SubResource("CircleShape2D_7lrrh")
 
 [node name="Collision_Detector" type="Area2D" parent="."]
+position = Vector2(-0.33333588, -80.66675)
 collision_mask = 5
 script = ExtResource("3_f7v1l")
 
 [node name="Tree_enemy_collide" type="CollisionShape2D" parent="Collision_Detector"]
+visible = false
 position = Vector2(-1.3333335, 24)
 shape = SubResource("CapsuleShape2D_e287p")
 

@@ -62,7 +62,6 @@ func spawn_flower():
 	spawn_pos.y = clamp(spawn_pos.y, MAP_MIN, MAP_MAX)
 	new_flower.global_position = spawn_pos
 	
-	new_flower.global_position = %PathFollow2D.global_position
 	add_child.call_deferred(new_flower)
 	new_flower.connect("mob_died", _on_mob_died)
 	
@@ -75,7 +74,6 @@ func spawn_puffer():
 	spawn_pos.y = clamp(spawn_pos.y, MAP_MIN, MAP_MAX)
 	new_puffer.global_position = spawn_pos
 	
-	new_puffer.global_position = %PathFollow2D.global_position
 	add_child.call_deferred(new_puffer)
 	new_puffer.connect("mob_died", _on_mob_died)
 	
@@ -88,7 +86,6 @@ func spawn_goblin():
 	spawn_pos.y = clamp(spawn_pos.y, MAP_MIN, MAP_MAX)
 	new_goblin.global_position = spawn_pos
 	
-	new_goblin.global_position = %PathFollow2D.global_position
 	add_child.call_deferred(new_goblin)
 	new_goblin.connect("mob_died", _on_mob_died)
 	

@@ -25,23 +25,21 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
 collision_mask = 5
 collision_priority = 2.0
 motion_mode = 1
 script = ExtResource("1_0rr22")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(-9, 7)
 shape = SubResource("CircleShape2D_vo4yd")
 
 [node name="GurtCharacter" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(-8, -13)
+y_sort_enabled = true
 scale = Vector2(3, 3)
 texture = ExtResource("2_0rr22")
 
 [node name="Gun" parent="." instance=ExtResource("3_0rr22")]
-position = Vector2(12, 0)
 collision_layer = 1
 collision_mask = 3
 
@@ -53,17 +51,16 @@ collision_layer = 0
 collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(-9, 5)
 shape = SubResource("CircleShape2D_0rr22")
 debug_color = Color(0.9968923, 0.05167964, 1.347661e-06, 0.41960785)
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
 z_index = 5
-offset_left = -170.0
-offset_top = -225.0
-offset_right = 161.0
-offset_bottom = -170.0
+offset_left = -161.0
+offset_top = -250.0
+offset_right = 170.0
+offset_bottom = -195.0
 theme_override_styles/background = SubResource("StyleBoxFlat_0rr22")
 theme_override_styles/fill = SubResource("StyleBoxFlat_852p6")
 value = 100.0

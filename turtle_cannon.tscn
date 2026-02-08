@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://obj8xjmi3rde"]
+
+[ext_resource type="Script" uid="uid://boui7prr53xjs" path="res://turtle_cannon.gd" id="1_a7epr"]
+[ext_resource type="Texture2D" uid="uid://cxymgtrtm4j4p" path="res://characters/Objects/turtle_cannon.png" id="1_qe4w3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a7epr"]
+radius = 31.0
+
+[node name="turtle_cannon" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 11
+motion_mode = 1
+script = ExtResource("1_a7epr")
+
+[node name="TurtleCannonCharacter" type="Sprite2D" parent="."]
+position = Vector2(730, 371)
+texture = ExtResource("1_qe4w3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(735, 377)
+shape = SubResource("CircleShape2D_a7epr")
