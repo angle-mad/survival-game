@@ -2,6 +2,7 @@ extends Node2D
 
 var mobs_killed = 0
 
+
 const MAP_MIN = -4900
 const MAP_MAX = 4900
 const TREE_SPACING = 400
@@ -50,8 +51,10 @@ func spawn_mob():
 	spawn_pos.y = clamp(spawn_pos.y, MAP_MIN, MAP_MAX)
 	new_mob.global_position = spawn_pos
 	
+
 	add_child(new_mob)
 	new_mob.connect("mob_died", _on_mob_died)
+	
 	
 func spawn_flower():
 	var new_flower = preload("res://characters/flower/flower.tscn").instantiate()

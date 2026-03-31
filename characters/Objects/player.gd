@@ -57,4 +57,9 @@ func _physics_process(delta: float) -> void:
 		if health <= 0.0:
 			health_depleted.emit()
 		
-		
+
+func take_damage():
+	health -= 20
+	%ProgressBar.value = health
+	if health <= 0.0:
+		health_depleted.emit()
