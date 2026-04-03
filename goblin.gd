@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 signal mob_died
-var health = 5
+var health = 2
 var rotation_speed = 3.0
 
 @onready var player = get_node("/root/Game/Player")
@@ -9,7 +9,7 @@ var rotation_speed = 3.0
 
 func _physics_process(_delta: float) -> void:
 	var direction = global_position.direction_to(player.global_position)
-	velocity = direction * 250.0
+	velocity = direction * 350.0
 	move_and_slide()
 
 func take_damage():

@@ -60,6 +60,7 @@ position = Vector2(-200, -81)
 rotation = -0.009986353
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
 
 [node name="GameOver" type="CanvasLayer" parent="."]
 unique_name_in_owner = true

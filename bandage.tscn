@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://oyjb3vvewwon"]
+
+[ext_resource type="Script" uid="uid://cg6uwubbb7lnq" path="res://bandage.gd" id="1_rg8sm"]
+[ext_resource type="Texture2D" uid="uid://b4y664twpy35k" path="res://bandage.png" id="1_uid2i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rg8sm"]
+radius = 21.023796
+
+[node name="Bandage" type="Area2D"]
+script = ExtResource("1_rg8sm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_uid2i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 4)
+shape = SubResource("CircleShape2D_rg8sm")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxymgtrtm4j4p"
-path="res://.godot/imported/turtle_cannon.png-04d352ce15ad0fd2e5f997267deb7295.ctex"
+uid="uid://b4y664twpy35k"
+path="res://.godot/imported/bandage.png-8b0a628de823489a3ba781d658a819d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/Objects/turtle_cannon.png"
-dest_files=["res://.godot/imported/turtle_cannon.png-04d352ce15ad0fd2e5f997267deb7295.ctex"]
+source_file="res://bandage.png"
+dest_files=["res://.godot/imported/bandage.png-8b0a628de823489a3ba781d658a819d2.ctex"]
 
 [params]
 

@@ -7,6 +7,8 @@ var is_dashing = false
 var dash_timer = 0.0
 var dash_cooldown_timer = 0.0
 var dash_direction = Vector2.ZERO
+var white_dash = load("res://Gurt_Character_white.png")
+var base = load("res://characters/Objects/Gurt_Character.png")
 
 const BASE_SPEED = 450
 const DASH_SPEED = BASE_SPEED*2
@@ -15,6 +17,7 @@ const DASH_COOLDOWN = 2.0
 
 func _ready():
 	%ProgressBar.max_value = 100
+	$GurtCharacter.texture = base
 
 func _physics_process(delta: float) -> void:
 	
@@ -22,6 +25,7 @@ func _physics_process(delta: float) -> void:
 		dash_timer -= delta
 		if dash_timer <= 0: 
 			is_dashing = false
+			$GurtCharacter.texture = base
 			$GurtCharacter.self_modulate = Color(0.7,0.5,0.5)
 		
 	if dash_cooldown_timer > 0: 
@@ -37,7 +41,7 @@ func _physics_process(delta: float) -> void:
 		is_dashing = true
 		dash_timer = DASH_DURATION
 		dash_cooldown_timer = DASH_COOLDOWN
-		$GurtCharacter.self_modulate = Color(1.3, 0.9, 0.9)
+		$GurtCharacter.texture = white_dash
 		if direction != Vector2.ZERO:
 			dash_direction = direction.normalized()
 		else:

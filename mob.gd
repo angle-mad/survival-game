@@ -9,7 +9,7 @@ var health = 3
 
 func _physics_process(_delta: float) -> void:
 		var direction = global_position.direction_to(player.global_position)
-		velocity = direction * 300.0
+		velocity = direction * 200.0
 		move_and_slide()
 
 func take_damage():

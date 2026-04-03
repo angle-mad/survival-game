@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 signal mob_died
-var health = 5
+var health = 15
 var rotation_speed = 3.0
 var attack_cooldown = 0.0
 var straight = 0.0
@@ -11,11 +11,11 @@ var straight = 0.0
 
 func _physics_process(_delta: float) -> void:
 	var direction = global_position.direction_to(player.global_position)
-	velocity = direction * 250.0
+	velocity = direction * 100.0
 	move_and_slide()
 	
 	attack_cooldown += _delta
-	if attack_cooldown >= 2:
+	if attack_cooldown >= 3:
 		shoot_spikes()
 		
 		

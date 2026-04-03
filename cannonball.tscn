@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://rlwpkhd2entp"]
+
+[ext_resource type="Script" uid="uid://bhf185g8dnpdt" path="res://cannonball.gd" id="1_246s8"]
+[ext_resource type="Texture2D" uid="uid://ca5g75iispalh" path="res://characters/Objects/cannonball.png" id="2_246s8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2b2rl"]
+radius = 6.6
+
+[node name="Cannonball" type="Area2D"]
+top_level = true
+z_index = -1
+y_sort_enabled = true
+scale = Vector2(5, 5)
+collision_layer = 0
+script = ExtResource("1_246s8")
+
+[node name="Projectile" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-0.39999962, -1.5999985)
+scale = Vector2(0.23437499, 0.23437499)
+texture = ExtResource("2_246s8")
+offset = Vector2(0, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.39999998, 0.60000014)
+shape = SubResource("CircleShape2D_2b2rl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
